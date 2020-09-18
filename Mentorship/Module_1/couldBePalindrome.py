@@ -3,12 +3,11 @@ I give you a string, let me know if this string could form a palindrome.
 
 Examples of palindromes: aba, aaaabaaaa, zabaz.
 
-
 Input: abcurrbac => TRUE;
 Input: lkhfadpdfsjafdskldfsafYYYYYYYYYYYYYYY = FALSE;
 Input: abc = FALSE;
 Input: APPE = FALSE;
-s
+
 """
 
 
@@ -16,7 +15,7 @@ from collections import defaultdict
 
 def couldBePalindromeDictionary(input : str):
     letterCounter = defaultdict(lambda:0)
-    for c in input.lower():
+    for c in input:
         letterCounter[c]+=1
     if len(letterCounter) == 1:
         return True
@@ -30,8 +29,8 @@ def couldBePalindromeDictionary(input : str):
 
 
 def couldBePalindromeArray(input: str):
-    letterCounter = [0] * 27
-    for c in list(input.lower()):
+    letterCounter = [0] * 128
+    for c in input:
         letterCounter[ord(c)-97]+=1
     odds = 0
     for c in letterCounter:
@@ -45,10 +44,11 @@ def couldBePalindromeArray(input: str):
 
 
 
-test_cases = ["abcdd", "abccbai", "abcabcdddd", "abcabcddddi", "hkdhakhdajkhdaw", "abcurrbac", "lkhfadpdfsjafdskldfsafYYYYYYYYYYYYYYY", "abc", "APPE", "aaaaa", "abcdddddjjjjjabc", "aaaaabbbbb", "aaaabbbbb", "aaabb"]
+test_cases = ["abcdd", "abccbai", "abcabcdddd", "abcabcddddi", "hkdhakhdajkhdaw", "abcurrbac", "lkhfadpdfsjafdskldfsafYYYYYYYYYYYYYYY", "abc", "APPE", "aaaaa", "abcdddddjjjjjabc", "aaaaabbbbb", "aaaabbbbb", "aaabb", "$$$$$$AA", "aA", "/&(888)"]
 for case in test_cases:
     print("------------------------")
     print("Dictionary - Input:", case, couldBePalindromeDictionary(case))
     print("Array - Input:", case, couldBePalindromeArray(case))
     
-
+num = 38
+print(1 + (num-1) % 9)
